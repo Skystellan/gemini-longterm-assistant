@@ -32,6 +32,7 @@ import { startSnowEffect } from './snowEffect/index';
 import { startTimeline } from './timeline/index';
 import { startTitleUpdater } from './titleUpdater';
 import { startWatermarkRemover } from './watermarkRemover/index';
+import { startPersonaInjector } from './personaInjector/index';
 
 // Suppress Vite's CSS preload errors in the Chrome extension content script context.
 // Dynamic imports (e.g., mermaid) trigger Vite's __vitePreload helper which tries to
@@ -237,6 +238,10 @@ async function initializeFeatures(): Promise<void> {
       await delay(LIGHT_FEATURE_INIT_DELAY);
 
       startExportButton();
+      await delay(LIGHT_FEATURE_INIT_DELAY);
+
+      // Tests persona injection
+      startPersonaInjector();
       await delay(LIGHT_FEATURE_INIT_DELAY);
     }
 
